@@ -80,14 +80,10 @@
       }
 
       window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-          var dropdowns = document.getElementsByClassName("dropdown-content");
-          for (let i = 0; i < dropdowns.length; i++) {
-            let openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-              openDropdown.classList.remove('show');
-            }
-          }
+        // If the clicked element is not inside the dropdown
+        const dropdown = document.querySelector('.dropdown');
+        if (!dropdown.contains(event.target)) {
+          document.getElementById("myDropdown").classList.remove("show");
         }
       }
       
