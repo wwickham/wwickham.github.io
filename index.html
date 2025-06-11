@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
 
+    <div id="lightningout"></div>
+
+    <script src="https://nium--compliance.sandbox.my.salesforce.com/lightning/lightning.out.js"></script>
+    <script>
+      const queryString = window.location.search;
+        console.log(queryString);
+      const urlParams = new URLSearchParams(queryString);
+      const client =urlParams.get('client')
+      console.log(client);
+      
+      $Lightning.use(
+        'c:LightningOutDependencyApp', // name of the Lightning app
+        function () {
+          // Callback once framework and app loaded
+/*          $Lightning.createComponent(
+            'c:helloWorld', // top-level component of your app
+            {}, // attributes to set on the component when created
+            'lightningout', // the DOM location to insert the component
+            function (cmp) {
+              // callback when component is created and active on the page
+            }
+          );   */
+
+          $Lightning.createComponent(
+            'c:applicationTabset', // top-level component of your app
+            {"clientId": (client)}, // attributes to set on the component when created
+            'lightningout', // the DOM location to insert the component
+            function (cmp) {
+              // callback when component is created and active on the page
+            }
+          ); 
+          
+        
+        
+        },
+        'https://nium--compliance.sandbox.my.site.com' // Site endpoint
+      );
+    </script>
+  </body>
+</html>
