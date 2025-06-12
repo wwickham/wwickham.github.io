@@ -80,6 +80,12 @@
         document.getElementById("myDropdown").classList.toggle("show");
       }
 
+      const queryString = window.location.search;
+        console.log(queryString);
+      const urlParams = new URLSearchParams(queryString);
+      const userId =urlParams.get('userId')
+      console.log(userId);
+
       window.onclick = function(event) {
         // If the clicked element is not inside the dropdown
         const dropdown = document.querySelector('.dropdown');
@@ -94,7 +100,7 @@
           // Callback once framework and app loaded
           $Lightning.createComponent(
             'c:flowWrapper', // top-level component of your app
-            {}, // attributes to set on the component when created
+            {"userId": (userId)},// attributes to set on the component when created
             'lightningout', // the DOM location to insert the component
             function (cmp) {
               // callback when component is created and active on the page
