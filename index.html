@@ -113,7 +113,11 @@
             //{userId: (userId)}, // attributes to set on the component when created, passed to the lwc as @api
             'lightningout', // the DOM location to insert the component
             function (cmp) {
-              // callback when component is created and active on the page
+              const lwc = document.getElementById("lightningout");
+              console.log('lwc' + lwc);
+              if (lwc) {
+                  lwc.resetFlow();
+              }
             }
           );
         },
