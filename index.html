@@ -76,15 +76,6 @@
 
     <script src="https://icevonline--full.sandbox.lightning.force.com/lightning/lightning.out.js"></script>
     <script>
-      function toggleDropdown() {
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
-
-      window.boomer = () => alert('BOOM!');
-      console.log('boomer defined?', typeof window.boomer);
-
-      window.toggleDropdown = toggleDropdown;
-
       /*const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const userId = urlParams.get('userId')
@@ -108,16 +99,19 @@
             //{userId: (userId)}, // attributes to set on the component when created, passed to the lwc as @api
             'lightningout', // the DOM location to insert the component
             function (cmp) {
-              const lwc = document.getElementById("lightningout");
-              console.log('lwc' + lwc);
-              if (lwc) {
-                  lwc.resetFlow();
-              }
+              window.lwcComponent = cmp;
             }
           );
         },
         'https://icevonline--full.sandbox.my.site.com/eduthings' // Site endpoint
       );
+
+      function toggleDropdown() {
+        if (window.lwcComponent) {
+            window.lwcComponent.resetFlow();
+        }
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
     </script>
   </body>
 </html>
