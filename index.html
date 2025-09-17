@@ -87,6 +87,12 @@
           document.getElementById("myDropdown").classList.remove("show");
         }
       }*/
+      function toggleDropdown() {
+        if (window.lwcComponent) {
+            window.lwcComponent.resetFlow();
+        }
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
       
       $Lightning.use(
         'c:LightningOutDependencyApp', // name of the Lightning app
@@ -105,12 +111,6 @@
         'https://icevonline--full.sandbox.my.site.com/eduthings' // Site endpoint
       );
 
-      function toggleDropdown() {
-        if (window.lwcComponent) {
-            window.lwcComponent.resetFlow();
-        }
-        document.getElementById("myDropdown").classList.toggle("show");
-      }
     </script>
   </body>
 </html>
