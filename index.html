@@ -76,10 +76,10 @@
 
     <script src="https://icevonline--full.sandbox.lightning.force.com/lightning/lightning.out.js"></script>
     <script>
-      /*const queryString = window.location.search;
+      const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      const userId = urlParams.get('userId')
-      console.log('Html page: ' + userId);*/
+      const firstName = urlParams.get('firstName')
+      console.log('Html page: ' + userId);
 
       /*window.onclick = function(event) {
         // If the clicked element is not inside the dropdown
@@ -95,7 +95,7 @@
           // Callback once framework and app loaded
           $Lightning.createComponent(
             'c:flowWrapper', // top-level component of your app
-            {},
+            {firstName: (firstName)},
             //{userId: (userId)}, // attributes to set on the component when created, passed to the lwc as @api
             'lightningout', // the DOM location to insert the component
             function (cmp) {
